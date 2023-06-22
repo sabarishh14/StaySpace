@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="./global.css" />
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" />
+</head>
+<body>
+  <div class="desktop-3">
+    <section class="frame-parent" id="top section">
+      <div class="find-the-perfect-place-to-stay-parent">
+        <b class="find-the-perfect-container">
+          <p class="find-the-perfect">Find the Perfect Place</p>
+          <p class="to-stay">to Stay</p>
+        </b>
+        <div class="now-choose-your">
+          Now, choose your accommodations based on your preferences!
+        </div>
+      </div>
+      <img class="icon" alt="" src="./public/4294781-1@2x.png" />
+    </section>
+    <main class="start-searching-parent" id="main input">
+      <b class="start-searching">Start Searching!</b>
+      <input class="frame-child" type="text" placeholder="Chennai" required />
+
+      <h3 class="amenities">Amenities</h3>
+      <div class="budget">Budget</div>
+      <div class="proximity">Proximity</div>
+      <button class="mdiac-unit-parent" id="frameButton">
+        <img class="mdiac-unit-icon" alt="" src="./public/mdiacunit.svg" />
+
+        <div class="air-conditioner">Air Conditioner</div>
+      </button>
+
+      <form action="/record" method="POST">
+        <button class="air-conditioner-parent" type="submit" name="input" value="ac">
+          <img class="air-conditioner-icon" alt="" src="./public/air-conditioner@2x.png" />
+          <div class="air-conditioner">Air Conditioner</div>
+        </button>
+      </form>
+
+      <button class="mdilockers-parent">
+          <img class="mdiac-unit-icon" alt="" src="./public/mdilockers.svg" />
+            
+          <div class="air-conditioner">Lockers</div>
+        </button>
+        <button class="cibcommon-workflow-language-parent">
+          <img
+            class="mdiac-unit-icon"
+            alt=""
+            src="./public/cibcommonworkflowlanguage.svg"
+          />
+
+          <div class="air-conditioner">Common Area</div>
+        </button>
+        <button class="material-symbolswifi-parent" id="frameButton4">
+          <img
+            class="mdiac-unit-icon"
+            alt=""
+            src="./public/materialsymbolswifi.svg"
+          />
+
+          <div class="air-conditioner">24/7 Wifi</div>
+        </button>
+        <button class="vector-parent">
+          <img class="vector-icon" alt="" src="./public/vector.svg" />
+
+          <div class="air-conditioner">Security Guard</div>
+        </button>
+        <button class="mdifood-parent">
+          <img class="mdiac-unit-icon" alt="" src="./public/mdifood.svg" />
+
+          <div class="air-conditioner">Food</div>
+        </button>
+        <div class="wpfkey-security"></div>
+        <div class="slider">
+          <div class="background"></div>
+          <div class="progress">
+            <div class="right-control">
+              <img
+                class="right-control-icon"
+                alt=""
+                src="./public/right-control.svg"
+              />
+
+              <div class="tooltip">
+                <img class="tooltip-icon" alt="" src="./public/tooltip.svg" />
+
+                <button class="content">
+                  <div class="text">2,500₹</div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="div">₹1,500</div>
+        <div class="div1">₹75,000</div>
+        <button class="search-wrapper">
+          <div class="search">Search</div>
+        </button>
+        <select class="upto-5kms-wrapper" style="font-family: var(--font-poppins); font-weight: bolder;">
+          <option value="5-10kms">Upto 5kms</option>
+        </select>
+      </main>
+      <header class="home-parent">
+        <div class="home">Home</div>
+        <div class="home">Contact</div>
+        <div class="home">About</div>
+      </header>
+    </div>
+
+    <script>
+      var frameButton = document.getElementById("frameButton");
+      if (frameButton) {
+        frameButton.addEventListener("click", function (e) {
+          // Please sync "Desktop - 4" to the project
+        });
+      }
+      

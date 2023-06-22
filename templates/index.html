@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
+    />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsJp9BP-TpdqL2xrIOwuK-oRdX_rZn2gE&libraries=places"></script>
+    <script>
+      function initAutocomplete() {
+          var input = document.getElementById('autocomplete-input');
+          var autocomplete = new google.maps.places.Autocomplete(input);
+      }
+  </script>
+  </head>
+  <body>
+    
+
+<style>
+.pac-item {
+  font-family: "Google Sans", sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+.pac-item-selected {
+  background-color: #f5f5f5;
+}
+
+.pac-container {
+            background-color: #fff;
+            border: 1px solid #999;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            font-family: Arial, sans-serif;
+            width: 300px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+
+
+</style>
+
+    <style>
+      
+      .toggle-button.active img {
+    filter: brightness(0) invert(1);
+  }
+
+      .slider {
+        
+        width: 100%;
+        height: 25px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+      }
+      
+      .slider:hover {
+        opacity: 1;
+      }
+      
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        color: aqua;
+        cursor: pointer;
+      }
+      
+      .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        color: aqua;
+        cursor: pointer;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .wrapper {
+        max-width: 1200px; /* Adjust this value as needed */
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      
+
+      </style>
+
+
+
+
+
+
+
+<div class="wrapper">
+    <div class="desktop-3">
+      <section class="frame-parent" id="top section">
+        <div class="find-the-perfect-place-to-stay-parent">
+          <b class="find-the-perfect-container">
+            <p class="find-the-perfect">Find the Perfect Place</p>
+            <p class="to-stay">to Stay</p>
+          </b>
+          <div class="now-choose-your">
+            Now, choose your accomodations based on your preferences!
+          </div>
+        </div>
+        <img class="icon" alt="" src="{{ url_for('static', filename='./public/4294781-1@2x.png') }}" />
+      </section>
+      <main class="start-searching-parent" id="main input">
+        <b class="start-searching">Start Searching!</b>
+        <input class="frame-child" type="text" placeholder="Chennai" required />
+
+        <h3 class="amenities">Amenities</h3>
+        <div class="budget">Budget
+          
+        </div>
+        <div class="proximity">Proximity</div>
+        <button id="acButton" class="ac-parent toggle-button" onclick="toggleActiveState(this)"> 
+          <img class="mdiac-unit-icon" alt="" src="{{ url_for('static', filename='./public/mdiacunit.svg') }}" />
+          <div class="air-conditioner">Air Conditioner</div>
+        </button>
+        
+        <button id="geyserButton" class="geyser-parent toggle-button" onclick="toggleActiveState(this)">
+          <img class="air-conditioner-icon" alt="" src="{{ url_for('static', filename='./public/air-conditioner@2x.png') }}" />
+          <div class="air-conditioner">Geyser</div>
+        </button>
+        
+        <button id="lockerButton" class="lockers-parent toggle-button" onclick="toggleActiveState(this)">
+          <img class="mdiac-unit-icon" alt="" src="{{ url_for('static', filename='./public/mdilockers.svg') }}" />
+          <div class="air-conditioner">Lockers</div>
+        </button>
+        
+        <button id="commonButton" class="common-room-parent toggle-button" onclick="toggleActiveState(this)">
+          <img class="mdiac-unit-icon" alt="" src="{{ url_for('static', filename='./public/cibcommonworkflowlanguage.svg') }}" />
+          <div class="air-conditioner">Common Area</div>
+        </button>
+        
+        <button id='wifiButton' class="wifi-parent toggle-button" onclick="toggleActiveState(this)">
+          <img class="mdiac-unit-icon" alt="" src="{{ url_for('static', filename='./public/materialsymbolswifi.svg') }}"/>
+          <div class="air-conditioner">24/7 Wifi</div>
+        </button>
+        
+        <button id="securityButton" class="security-parent toggle-button" onclick="toggleActiveState(this)">
+          <img class="vector-icon" alt="" src="{{ url_for('static', filename='./public/vector.svg') }}" />
+          <div class="air-conditioner">Security Guard</div>
+        </button>
+        
+        <button id="foodButton" class="food-parent toggle-button" onclick="toggleActiveState(this)">
+          <img class="mdiac-unit-icon" alt="" src="{{ url_for('static', filename='./public/mdifood.svg') }}" />
+          <div class="air-conditioner">Food</div>
+        </button>
+        
+        
+
+
+
+        <form action="/search" method="POST">
+          <div class="wpfkey-security"></div>
+          
+          <input class="frame-child" name='place' id="autocomplete-input" type="text" placeholder="Chennai" required />
+        
+          <a href="{{ url_for('search') }}"><button class="search-wrapper"><div class="search">Search</div></button></a>
+          <select name="dropdown" id="dropdown" class="dropdown" style="font-family: var(--font-poppins); font-weight: bolder;">
+            <option value="2">0-2kms</option>
+            <option value="5">3-5kms</option>
+            <option value="10">5-10kms</option>
+            <option value="20">10-20kms</option>
+          </select>
+          <section class="slider" style="width: 300px; background-color: #F4FBFE;">
+            <input name="slider" style="width: 300px; background-color: blue;" type="range" min="1000 " max="10000" value="1000" step="100" oninput="rangeValue.innerText = this.value">
+            <p id="rangeValue">1000</p>
+          </section>
+          <input type="hidden" name="acCount" value="" id="acCountInput">
+          <input type="hidden" name="geyserCount" value="" id="geyserCountInput">
+          <input type="hidden" name="lockerCount" value="" id="lockerCountInput">
+          <input type="hidden" name="commonCount" value="" id="commonCountInput">
+          <input type="hidden" name="wifiCount" value="" id="wifiCountInput">
+          <input type="hidden" name="foodCount" value="" id="foodCountInput">
+          <input type="hidden" name="securityCount" value="" id="securityCountInput">
+          
+        </form>
+   
+      </main>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsJp9BP-TpdqL2xrIOwuK-oRdX_rZn2gE&libraries=places&callback=initAutocomplete" async defer></script>
+
+      <header class="home-parent">
+        <div class="home" style="font-weight:500">Home</div>
+        <div class="home" style="font-weight:500" >Contact</div>
+        <div class="home"style="font-weight:500">About</div>
+      </header>
+    </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+      function toggleActiveState(button) {
+  button.classList.toggle("active");
+}
+
+
+      </script>
+  </body>
+</html>
