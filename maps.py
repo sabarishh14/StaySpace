@@ -2,9 +2,9 @@ import requests
 import datetime
 import random
 
-
-GOOGLE_API_KEY = "AIzaSyCsJp9BP-TpdqL2xrIOwuK-oRdX_rZn2gE"
-RAPIDAPI_KEY="a1cef71eecmsh04a29364a8b9663p1088acjsn364d07876c37"
+load_dotenv()
+GOOGLE_API_KEY = os.getenv("GOOGLE")
+RAPIDAPI_KEY=os.getenv("RAPIDAPI")
 
 def find_nearby_hostels(input_location,budget,amenity):
     geocode_url = f"https://maps.googleapis.com/maps/api/geocode/json?address={input_location}&key={GOOGLE_API_KEY}"
